@@ -41,7 +41,9 @@
 
 ### after cloning the repository, install packages
 
+```sh
 _npm i_
+```
 
 ### set up .env file
 
@@ -56,11 +58,15 @@ NEXTAUTH_SECRET=
 
 ### npx primsa db push
 
+```sh
 _npx prisma db push_
+```
 
 ### Start the app
 
+```sh
 _npm run dev_
+```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -78,6 +84,18 @@ ESLint: yes
 `src/` directory: no
 experimental "app/" directory: yes
 import alias:  press enter
+```
+
+Reference table:
+| CRA | VIte | Next.js |
+|-----|------|---------|
+|Index.j/ts| Main.j/tsx | Layout.j/tsx|
+|App.j/ts| App.j/tsx | Page.j/tsx |
+
+#### Start the project:
+
+```sh
+_npm run dev_
 ```
 
 ### Credits:
