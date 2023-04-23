@@ -1,4 +1,4 @@
-# Build your Airbnb clode from scratch
+# Build your Airbnb clone from scratch
 
 ### Technologies used
 
@@ -51,7 +51,7 @@ Back-end packages:
 ### after cloning the repository, install packages
 
 ```sh
-_npm i_
+npm i
 ```
 
 ### set up .env file
@@ -68,14 +68,22 @@ NEXTAUTH_SECRET=
 ### npx primsa db push
 
 ```sh
-_npx prisma db push_
+npx prisma db push
 ```
 
 ### Start the app
 
 ```sh
-_npm run dev_
+npm run dev
 ```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::: Steps :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -85,21 +93,21 @@ _npm run dev_
 
 #### create app
 
-1. _npx create-next-app --typescript_.
+1. Run in the terminal: _npx create-next-app --typescript_.
 
 ```sh
-give a name
+give your project a name
 ESLint: yes
 `src/` directory: no
 experimental "app/" directory: yes
 import alias:  press enter
 ```
 
-Reference table:
-| CRA | VIte | Next.js |
-|-----|------|---------|
-|Index.j/ts| Main.j/tsx | Layout.j/tsx|
-|App.j/ts| App.j/tsx | Page.j/tsx |
+-   Reference table:
+    | CRA | VIte | Next.js |
+    |-----|------|---------|
+    |Index.j/ts| Main.j/tsx | Layout.j/tsx|
+    |App.j/ts| App.j/tsx | Page.j/tsx |
 
 2. Go to global.css and detele everything. Go to page and clean it all up, leave only the main function. Go to layout.tsx to change the name of the tab, the description, to import a font and pass it in the retun of the function. Delete page.module.css.
 
@@ -111,9 +119,7 @@ npm install -D tailwindcss postcss autoprefixer
 
 Then run the following command
 
-```sh
-npx tailwindcss init -p
-```
+_npx tailwindcss init -p_
 
 This creates 2 new files: _postcss.config.js_ and _tailwind.config.js_
 
@@ -191,9 +197,7 @@ body,
 
 ### Start the project:
 
-```sh
 _npm run dev_
-```
 
 ### Credits:
 
