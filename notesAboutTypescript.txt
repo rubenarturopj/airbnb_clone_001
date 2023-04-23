@@ -1,0 +1,29 @@
+/* 
+
+There are several ways to specify types in TS:
+
+1. inline types in the function parameters:  // (person is the param1 with 2 properties: name and age)
+    
+    function greet(person:{name:string; age:number}){
+        return "Hello" + person.name;
+    }
+
+2. create an interface or blueprint -- or a type alias---- and then use it in the function
+    
+    interface Person {
+        name: string;
+        age: number;
+    };
+
+    // or
+    
+    type Person = {
+        name: string;
+        age: number;
+    }
+
+    function greet(person: Person) {
+        return "Hello" + person.name;
+    }
+
+*/

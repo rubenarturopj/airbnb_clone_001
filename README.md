@@ -2,13 +2,16 @@
 
 ### Technologies used
 
--   Next.js 13 App directory
--   Tailwind
+-   Next.js 13 App directory with Typescript (_npx create-next-app --typescript_)
+-   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_)
 -   Prisma
 -   MongoDB (cloud)
 -   NextAuth 2023
 -   Cloudinary CDN API
--   Typescript
+
+Front-end packages:
+
+-   React icons(_npm install react-icons_)
 
 ### Features:
 
@@ -92,7 +95,57 @@ Reference table:
 |Index.j/ts| Main.j/tsx | Layout.j/tsx|
 |App.j/ts| App.j/tsx | Page.j/tsx |
 
-#### Start the project:
+2. Go to global.css and detele everything. Go to page and clean it all up, leave only the main function. Go to layout.tsx to change the name of the tab, the description, to import a font and pass it in the retun of the function. Delete page.module.css.
+
+3. Install Tailwind. Stop the application before installing.
+
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
+
+Then run the following command
+
+```sh
+npx tailwindcss init -p
+```
+
+This creates 2 new files: _postcss.config.js_ and _tailwind.config.js_
+
+4. Go to _tailwind.config.js_. Add the following content to configure template paths:
+
+```sh
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+```
+
+Then go to global.css and add:
+
+```sh
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root { height: 100% }
+```
+
+5. Run the app again _npm run dev_. You can go to page.tsx and add some classnaames to the div to test if tailwind was succesfully activated.
+
+#### create Navbar UI
+
+1. In app folder, create a new folder called components, and inside create another folder called navbar. In there, create a new file called Navbar.tsx (app/components/navbar/Navbar.tsx). In this file create the main function to export. Now that this file exist, add it in the body of Layout.tsx and import it on top.
+
+-   At some point you will install react icons through the terminal: _npm install react-icons_
+
+2. Keep working on the navbar: add style, a container element, logo, search, userMenu, MenuItem etc. Fill in those components of the navbar. Add the corresponding images
+
+#### Authentication UI
+
+### Start the project:
 
 ```sh
 _npm run dev_
@@ -101,6 +154,14 @@ _npm run dev_
 ### Credits:
 
 [Code With Antonio](https://www.youtube.com/watch?v=c_-b_isI4vg)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
