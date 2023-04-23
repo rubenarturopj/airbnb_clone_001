@@ -93,7 +93,11 @@ npm run dev
 
 #### create app
 
-1. Run in the terminal: _npx create-next-app --typescript_.
+1. Run in the terminal:
+
+```sh
+npx create-next-app --typescript
+```
 
 ```sh
 give your project a name
@@ -119,7 +123,9 @@ npm install -D tailwindcss postcss autoprefixer
 
 Then run the following command
 
-_npx tailwindcss init -p_
+```sh
+npx tailwindcss init -p
+```
 
 This creates 2 new files: _postcss.config.js_ and _tailwind.config.js_
 
@@ -153,6 +159,10 @@ body,
 
 -   At some point you will install react icons through the terminal: _npm install react-icons_
 
+```sh
+npm install react-icons
+```
+
 2. Keep working on the navbar: add style, a container element, logo, search, userMenu, MenuItem etc. Fill in those components of the navbar. Add the corresponding images.
 
 3. Fix the bug we've gotten when we click on things. It's a hydration error. It could be because at this time we are using the experimental app folder (app folder is in development, in experimental phase). If you wanna try to reproduce the error, refresh the page as many times and as it's loading, click anywhere on the screen/UI.
@@ -167,6 +177,10 @@ body,
 
 -   Install the following package: _npm install zustand_. Restart the app. Refresh the browser.
 
+```sh
+npm install zustand
+```
+
 -   Work on the useRegisterModal.ts file.
 
 3. in the foler "modals" (app/components/modals) create a file named "RegisterModal.tsx" (((the extension now is TSX and not TS))). Create its basic structure.
@@ -174,6 +188,14 @@ body,
 4. Go to layout.tsx and DELETE the modal component entirely. In it's place, type in the RegisterModal component that we just created and import it on top. Remove the other import we won't use anymore (from Modal).
 
 5. Instal AXIOS (_npm install axios_). Install React-Hooks-Forms (_npm install react-hook-form_).
+
+```sh
+npm install axios
+```
+
+```sh
+npm install react-hook-form
+```
 
 -   Restart your app and refresh the browser.
 -   Go back to RegisterModal.tsx and import axios, react-hook-form, react-icons, stuff from react and the useRegisterModal. Implement the previously deleted MOdal there and set everything up so it works.
@@ -188,6 +210,10 @@ body,
 
 10. Install React-hot-toast (_npm install react-hot-toast_). And restart your app and refresh the browser. (for notifications).
 
+```sh
+npm install react-hot-toast
+```
+
 -   Got to /app/ and create a new folder called "providers". Inside, create a new file called "ToasterProvider.tsx". Fill it in with basic structure. Import Toaster in it and return the Toaster component imported. With this type of packages, we cannot simpli import it wherever we want to use it, but we need to create one instance in our app with a function so we can use that wherever we want.
 
 -   Go to layout.tsx. Inside the ClientOnly tags and above RegisterModal tag, add the ToasterProvider tag.
@@ -197,7 +223,9 @@ body,
 
 ### Start the project:
 
-_npm run dev_
+```sh
+npm run dev
+```
 
 ### Credits:
 
