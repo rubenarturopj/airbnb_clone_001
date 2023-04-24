@@ -332,6 +332,10 @@ NEXTAUTH_SECRET="NEXTAUTH_SECRET"
 
 -   (((parenthesis: axios is used to make/treat http requests. Express is used to build up the server. Express servers the website pages /, /logging, /users.... Axios deals with the requests made (get, post, delete... like Cors? ))))
 
+#### Login functionality
+
+1. hola
+
 ### Start the project:
 
 ```sh
