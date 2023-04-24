@@ -2,23 +2,38 @@
 
 ### Technologies used
 
--   Next.js 13 (App directory) with Typescript (_npx create-next-app --typescript_)
--   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_)
--   Prisma
--   MongoDB (cloud)
--   NextAuth 2023
+pending to clasify
+
 -   Cloudinary CDN API
 
-Front-end packages:
+Framework (front and backend):
 
+-   Next.js 13 (App directory)
+
+Programming Language:
+
+-   Typescript (_npx create-next-app --typescript_)
+
+Front-end:
+
+-   Tailwind CSS (_npm install -D tailwindcss postcss autoprefixer_)
 -   React icons: icons (_npm install react-icons_)
 -   Zustand: state management solution (_npm install zustand_)
 -   React Hot Toast: notifications (_npm install react-hot-toast_)
 
-Back-end packages:
+Back-end:
 
--   Axios (_npm install axios_)
--   Prisma (bridge between OOP -our app- and databases --in this case MongoDB--) (_npm i -D prisma_ and _npx prisma init_)
+-   Axios (To make XMLHttpRequests from the browser, to make http requests from node.js, automatically transforms for JSON data) (_npm install axios_)
+
+Database:
+
+-   Prisma (bridge between OOP -our app- and databases --in this case MongoDB--) (to structure and organize the data(tables and relations among them)) (_npm i -D prisma_ and _npx prisma init_)
+-   MongdoDB Atlas (cloud) (database host);
+
+Authentication:
+
+-   Auth.js --> But "@next-auth/prisma-adapter" 2023, which is the official primsa adapter for Auth.js / NextAuth.js. (Serves to loggin using several social media profiles/accounts like github, google, facebook, etc.) (_npm install next-auth @prisma/client @next-auth/prisma-adapter_)
+-   Bcrypt. A library that helps hash passwords (this means Encrypt passwords changing them into a completely different string made of different characters) (_npm install bcrypt_). For its types: (_npm install -D @types/bcrypt_)
 
 ### Features:
 
@@ -135,11 +150,11 @@ This creates 2 new files: _postcss.config.js_ and _tailwind.config.js_
 4. Go to _tailwind.config.js_. Add the following content to configure template paths:
 
 ```sh
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+content: [
+  "./app/**/*.{js,ts,jsx,tsx}",
+  "./pages/**/*.{js,ts,jsx,tsx}",
+  "./components/**/*.{js,ts,jsx,tsx}",
+],
 ```
 
 Then go to global.css and add:
@@ -277,81 +292,62 @@ npx prisma db push
 -   Terminal must show a successful message
 -   Go to Browse Collections in Mongo DB cloud, or click refresh if you were already there, and you should be able to see all the 4 tables created.
 
+6. Implement Auth.js. This technology is used for authentication to our website when logging in. It allows the user to log in using one of their already existing accounts like google, facebook, github, etc. In this case, we are going to use an official adapter for Next.js and Prisma, which is called: "@next-auth/prisma-adapter".
+
+To install @next-auth/prisma-adapter type the following 3 packages in the terminal:
+
+```sh
+npm install next-auth @prisma/client @next-auth/prisma-adapter
+```
+
+7. Install another package that will help us with personal login, that is "bcrypt". In the temrinal run:
+
+```sh
+npm install bcrypt
+```
+
+-   and then install its types:
+
+```sh
+npm install -D @types/bcrypt
+```
+
+8. Create our Prisma DB Util. In the /app/ folder, create another folder called "libs". Inside that folder, create a file called "prismadb.ts" (/app/libs/prismadb.ts). Fill it in. We are creating this PrismaClient global variable because it has an impact in the whole code. It's a better practice to do this. Technically we could import the PrismaClient everywhere in the code, but it would creat a lot of "new Prisma Client" instances and would give us warnings in the terminal. This all because of Next.js hot realoding. So this solution helps prevent that and it's also cleaner and best practice.
+
+9. Create our "next-auth" file. As of March 27th 2023, NextAuth DOES NOT SUPPORT the app/api YET. So we cannot create a "next-auth" file inside the /app/ folder. This is the only instance where we need to use the "Pages" instance. Don't worry, the "Pages" api won't be depricated for a very longtime, because of the migration period Next.13 needs to allow. SOOOOOO, let's create the folder /pages/ in the project folder.
+
+-   In the project folder, create the /pages/ folder. Inside of that create a new foler called /api/. Inside, create a new folder called /auth/. And inside create a new file called "[...nextauth].ts" ---> "projecFolder/pages/api/[...nextauth].ts"
+
+-   Fill in this new file. It,s very complicated this part. We are defining the Autentication part of our login: using google and/or github credentials, and using email and password. We're using the technologies we installed to work with encrypted passwords and more security aspects. This is where we decide if we allow the user to log in or not. VERY IMPORTANT.
+
+13. Set up "NEXTAUTH_SECRET" in .env file. Go to ".env" file and add in it: "NEXTAUTH_SECRET=thisIsOurSecret". The secret is the one we wrote in the "[...nextauth].ts" file. IN THIS CASE ONLY is the same as the variable because we decided it to be like that. In this case, the line of code we have to add to ".env" file is:
+
+```sh
+NEXTAUTH_SECRET="NEXTAUTH_SECRET"
+```
+
+14. Now we're going to create our Route (backend) that we used in our RegisterModal before, using AXIOS. Go to app folder, then delete the hello folder it has because we're not going to use it. In /app/ create a new folder called "register", in it create a new file called "route.ts"... (/app/api/register/route.ts). Fill it it creating the function to make a http POST request.
+
+-   If everything was well done. Then you can save modifications, refresh your app and then create a new user. It should work, if you inspect or press F12 you can see the process being succesful. Also if you go to mongo db atlas , you will see the first user created in the USER table. We are using the AXIOS code we set in _RegisterModal_ to treat the post request. We set up the post request in _route.ts_. We canalize the request through _schema.prisma_, here also we set up where are we sending the request, to what database, we used the URL from the _.env_ file.
+
+-   (((parenthesis: axios is used to make/treat http requests. Express is used to build up the server. Express servers the website pages /, /logging, /users.... Axios deals with the requests made (get, post, delete... like Cors? ))))
+
 ### Start the project:
 
 ```sh
 npm run dev
 ```
 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Credits:
 
 [Code With Antonio](https://www.youtube.com/watch?v=c_-b_isI4vg)
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
