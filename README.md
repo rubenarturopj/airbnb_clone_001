@@ -18,6 +18,7 @@ Front-end packages:
 Back-end packages:
 
 -   Axios (_npm install axios_)
+-   Prisma (bridge between OOP and databases) (_npm i -D prisma_ and _npx prisma init_)
 
 ### Features:
 
@@ -83,7 +84,7 @@ npm run dev
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::: Steps :::::::::::::::::::::::::
+::::::::::::::::::::: Steps ::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -98,6 +99,8 @@ npm run dev
 ```sh
 npx create-next-app --typescript
 ```
+
+Then set up the configuration as following: (in case of being prompted more options, I chose "no");
 
 ```sh
 give your project a name
@@ -220,6 +223,48 @@ npm install react-hot-toast
 -   Now that we have this Toaster Notifications, we are going to replace the way we show erros in the UI. Go to RegisterModal.tsx and in the onSubmit function, in the .catch section, delete the console log. and replace it with toast.error("message") and don-t forget to import it.
 
 11. Let's create placeholders for register with github and google. In RegisterModals.tsx, create the "const footer". Pass the props and if you place Footer propo in MOdal. You shoul see the button with the google icon. For the github button, copy and paste the setup for the google one and change the data to fill it.
+
+#### Functionality of Register, MongoDB, Prisma setup
+
+1. Install Prisma in the terminal
+
+```sh
+npm i -D prisma
+npx prisma init
+```
+
+Prisma instructions in the terminal - - - - - - -
+_Set the DATABASE_\_ _URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started_
+_Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb._
+_Run prisma db pull to turn your database schema into a Prisma schema._
+_Run prisma generate to generate the Prisma Client. You can then start querying your database._
+
+---
+
+2. Search on internet "mongo db atlas", go to the official website and create a new project, create then a new database, make sure to choose the free option. Then set up the username and password (admin, admin). For the IP, to avoid problems it's better to put the following: "0.0.0.0/0". Then accpet everything. Click on "connect". Choose connect with VSCode: we are not going to connect with VSCODE but we need the type of link this option provides
+
+```sh
+mongodb+srv://admin:<password>@clusterairbnb.ax6rhq7.mongodb.net/test
+```
+
+3. Go to Public folder, and in there you should see an .env file (public/.env). In there you will see a constant called DATABASE URL with a string associated to it. Replace that string with the one we copied from mongodb atlas. Make sure to leave the quotation marks. Once done that, chance the componen >password< in the url for the actual password. Make sure you have "/test" at the end of the string, or whatever your database is, otherwise prisma won't work.
+
+```sh
+mongodb+srv://admin:admin@clusterairbnb.ax6rhq7.mongodb.net/test
+```
+
+4. There's a new folder called "PRISMA" that was created when we installed prisma. Inside it has a file named "schema.prisma". In there, change the datasource db provider value to "mongodb".
+
+```sh
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+```
+
+-   ATTENTION HERE: if "schema.pisma" 's text is all plain white, if you dont' see it in colors, it means you are missing an extension. Install the extension "Prisma" on the VSCode Store.
+
+-   Continue to work on prisma/schema.prisma file to make it ready.
 
 ### Start the project:
 
