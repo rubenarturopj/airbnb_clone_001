@@ -18,7 +18,7 @@ Front-end packages:
 Back-end packages:
 
 -   Axios (_npm install axios_)
--   Prisma (bridge between OOP and databases) (_npm i -D prisma_ and _npx prisma init_)
+-   Prisma (bridge between OOP -our app- and databases --in this case MongoDB--) (_npm i -D prisma_ and _npx prisma init_)
 
 ### Features:
 
@@ -264,7 +264,18 @@ datasource db {
 
 -   ATTENTION HERE: if "schema.pisma" 's text is all plain white, if you dont' see it in colors, it means you are missing an extension. Install the extension "Prisma" on the VSCode Store.
 
--   Continue to work on prisma/schema.prisma file to make it ready.
+-   DATABASE: Continue to work on prisma/schema.prisma file to make it ready. Create all the queries for the TABLES in the database and connect among them.
+
+5. Now that the database queries are done. We need to push this to our database. Go to mongodb(cloud), click Browse collections. You wont see anything because we haven't pushed our queries yet. So, now we're going to run a command that will push the queries to the DB.
+
+-   To push the queries to the DB, in the terminal type:
+
+```sh
+npx prisma db push
+```
+
+-   Terminal must show a successful message
+-   Go to Browse Collections in Mongo DB cloud, or click refresh if you were already there, and you should be able to see all the 4 tables created.
 
 ### Start the project:
 
