@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// add the following
+
+// each TABLE in Mongo's database is called MODEL.
+
+// Below, the table User says that each User registered must have: id, createdAt, updateAt, favoriteIds.
+
+// The ? question marks tells each User can have optionally: a name, an email, an email verified, an image, a hashedpassword.
+
+// [] means that it can have many, like "comments Comment[]" means that comments section can have many comments
+// So, each User can have many accounts registered in the account category, many listtings in the
+// listing category and many reservations in the reservation category.
+
+// The first table, User, doesn't have any FK (foreigh Keys) to connect to other tables because 
+// this is the first and main table that will contain the users and the other tables will refer
+// to this one to keep track of the the User that is doing other stuff.
+
+// In the Account table, we are connecting each User in the following line:
+// user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+// This means that through the property "user" it's being connected to the table "User"
+// creating a "relation" by linking the "userId" from the Account table with the "id"
+// from the "User" table. So, in the Account table, "id" from Users becomes "userId", 
+// the foreign key to link both tables. Account depends on Users.
+// the "onDelete" property means what is going to happen to Account table once the user
+// is deleted from the User table.
+
+//
+//
+// Esto es una sola tabla, la tabla de usuarios.
+
+model User {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  email          String? @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime @default(now())
+  updateAt       DateTime @updatedAt
+  favoriteIds    String[] @db.ObjectId
+
+// Because these have the structure "model + []"", they will be highlighted as errors until we develop them below
+  accounts Account[]
+  listings Listing[]
+  reservations Reservation[]
+}
+
+// social logins
+model Account {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String   @db.ObjectId
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.String
+  access_token       String?  @db.String
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.String
+  session_state      String?
+
+  // through "user" we are establishing a "relation" with the table "User" and 
+  // the "Account" table by taking the "id" value from USER table and making it 
+  // the value of "userId" in the ACCOUNT table (foreign key)
+  // The "onDelete" property refers to what's going to happen to this relation
+  // once the user is deleted from the User table.
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // we need a unique cmbination of these 2:
+  @@unique([provider, providerAccountId])
+}
+
+model Listing {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  description   String
+  imageSrc      String
+  createdAt     DateTime @default(now())
+  category      String
+  roomCount     Int
+  bathroomCount Int
+  guestCount    Int
+  locationValue String
+  userId        String @db.ObjectId
+  price         Int
+
+  // throught the property "user".... I'm connecting User table with Listing table.
+  // I'm passing the the "id" from User table to the "userId" from Listing.
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reservations Reservation[]
+}
+
+model Reservation {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String @db.ObjectId
+  listingId  String @db.ObjectId  
+  startDate  DateTime
+  endDate    DateTime
+  totalPrice Int
+  createdAt  DateTime @default(now())
+
+  //through "user", connect the tables User and Reservation: pass "id" from User to "userId" from Reservation
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  //through "listing", connect the tables Listing and Reservation: pass "id" from Listing to "listingId" from Reservation
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
