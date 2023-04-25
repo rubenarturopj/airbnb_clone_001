@@ -366,6 +366,11 @@ NEXTAUTH_SECRET="NEXTAUTH_SECRET"
 
 -   Now you can test our app by creating a user (user will be stored in the database), then loggin in (we will fetch user info from the dabase). When you login, the items on the drowdown hamburger menu will be different. If you Logout, this items will change once again =) yaay.
 
+-   Before we pass to the next part, let's address the warnings we've been getting on the console while browsing our website. The warning is: Only plain objects can be passed to Client Components from Server Components. Dale objects are not supported. In the prisma's schema, one of the parameters of the schema is `emailVerified, createdAt, updatedAt:`. These elements can be verified in `schema.prisma`.
+-   Go to `getCurrentUser.ts` in `app/actions/getCurrentUser.ts`. And instead of just returning a plain current user we will return an object that will contain the currentUser we had but with certain modifications on some properties; these certain proterties will have the same date values but transformed into a string (instead of the date format). To do that, we will use the `.toISOString()` function.
+-   This last step triggered another error in `layout.tsx`, so we're going to head to that file to do investigate. We found out the reason of the error is because we're passing the 3 previously mentioned values as strings, while in the interface we set them as Date format. To fix that, we're going to create another file called `types` in `app/types/`, inside create another file called `index.ts`. In this file we are going to create the safe types, don't forget to import.
+-   Once that done, go to `app/components/navbar/Navbar.tsx` and replace `User` in the interface, for `SafeUser`, import it from `@app/types`, and delete the other import of `User`. Now go to `app/components/navbar/userMenu.tsx` and do the same in `getCurrentUser`. Here we're gonna replace some properties' values from the object for the same values but in string format instead of a Date format.
+
 #### Google and github authentication login
 
 ### Start the project:

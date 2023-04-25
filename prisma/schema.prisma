@@ -14,7 +14,7 @@ datasource db {
 
 // each TABLE in Mongo's database is called MODEL.
 
-// Below, the table User says that each User registered must have: id, createdAt, updateAt, favoriteIds.
+// Below, the table User says that each User registered must have: id, createdAt, updatedAt, favoriteIds.
 
 // The ? question marks tells each User can have optionally: a name, an email, an email verified, an image, a hashedpassword.
 
@@ -47,7 +47,7 @@ model User {
   image          String?
   hashedPassword String?
   createdAt      DateTime @default(now())
-  updateAt       DateTime @updatedAt
+  updatedAt       DateTime @updatedAt
   favoriteIds    String[] @db.ObjectId
 
 // Because these have the structure "model + []"", they will be highlighted as errors until we develop them below
