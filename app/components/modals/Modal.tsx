@@ -125,7 +125,6 @@ const Modal: React.FC<ModalProps> = ({
                     </div>
                 </div>
             </div>
-            <div>hola</div>
         </>
     );
 };

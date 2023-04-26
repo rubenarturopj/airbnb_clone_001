@@ -1,4 +1,6 @@
-# IN CONSTRUCTION ⚠️👷‍♂️🏗️🚧
+# UNDER CONSTRUCTION
+
+# ⚠️👷‍♂️🏗️🚧
 
 # Build your Airbnb clone from scratch
 
@@ -489,6 +491,14 @@ onClick={() => {signIn("google")}}
 
 If you have this issue. Then stop the project. Simply delete `.next` folder. And restart the project. This will create a new `.next` folder with Next.JS stuff in it. This is just cache from Next.JS. If you ever have another issue just do this and it should fix it.
 
+#### Polishing login/register modals.
+
+1. Go to `LoginModal.tsx`, in the footer const section. Change the "Already have an account?" for "First time using Airbnb?", change also the "log in" for "Create an account".
+
+2. Create a toggle function above the body content, to close the login modal and open the register modal. Once it's created, in the return section of the footer, change the `onCLick` function for this toggle function we just created.
+
+3. We'll du exactly the same with the register modal. Copy this `toggle` function and paste it in `RegisterModal.tsx`. Invert the variables that will close and open. Then add the toggle function to the `onClick` parameter. Don't forget to add the "const loginModal" on top of the main function.
+
 #### CATEGORIES UI
 
 Let's create a categories bar below our navbar.
@@ -516,6 +526,30 @@ npm i query-string
 7. Let's add another option to clean the categories selected (or to unselect them all, or clear categories). That will be when you click on the LOGO of the website, all categories should be cleared. In `app/components/navbar/Logo.tsx` add the onClick function to the `<Image>` component, like this: `onClick={() => router.push("/")}`.
 
 -   Finally, make sure all components have "use client" on top.
+
+#### Listing creation: Category selection
+
+-   Making sure we're loggin to be able to click on Airbnb your home.
+
+1. Go to `components/navbar/UserMenu.tsx`. Search for the div that contains `Airbnb, your home`. We are going to replace the empty function. Create a function on top called `onRent` ebfore the return section.
+
+2. Elaborate the function: if we are logged in, we will be able to use the Rent Modal (that we haven't built yet). If we're not, the website will ask us to log in.
+
+-   Create our Rent Modal.
+
+1. Go to `app/hooks` folder an copy `LoginModal.ts` in the same folder, rename it to `useRentModal.ts`. Rename everything inside to `RentModal`
+
+2. Create a new file called `RentModal.tsx` in the components folder `app/components/modals`. Fill it with its corresponding structure. Make sure to add "use client" on top.
+
+3. Go to `layout.tsx` and add the new created modal to it above the `<LoginModal>` component. Import it.
+
+4. Got to `navbar/usermenu.tsx` and add the respective code to the `onRent` function in order to make rentModal open. Go below in "usermenu" to the part where you are returning the `<MenuItems/>`, add `rentModal.onOpen` in the `onClick` function belonging to `Airbnb my home`. Cool.
+
+5. Go back to `RentModal.tsx`. Create an `enum` calles STEPS. Once that done, let's add the controls for STEPS in the main section (this means create a the functions to control them). Once done, add `actionLabel`, `secondaryAction` and `secondaryActionLabel` to the Modal component in the return of the main function.
+
+6. Let's create the `body content` still in `RentModal.tsx`, we'll use LET instead of CONST because we wanna change it dynamically. Map over the importet categories array. Create another component to display this categories called `<CategoryInput/>`. You can create the `CategoryInput.tsx` file in `app/components/input/CategoryInput.tsx`. Don't forget to import it.
+
+#### more
 
 ## Start the project:
 

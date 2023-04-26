@@ -51,6 +51,12 @@ const LoginModal = () => {
         });
     };
 
+    // function to shut down the login modal and open the register modal (switch from login to signup)
+    const toggle = useCallback(() => {
+        loginModal.onClose();
+        registerModal.onOpen();
+    }, [loginModal, registerModal]);
+
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading title="Welcome back" subtitle="Login to your account" />
@@ -116,16 +122,16 @@ const LoginModal = () => {
                         gap-2
                     "
                 >
-                    <div>Already have an account?</div>
+                    <div>First time using Airbnb?</div>
                     <div
-                        onClick={registerModal.onClose}
+                        onClick={toggle}
                         className="
                             text-neutral-800
                             cursor-pointer 
                             hover:underline
                             "
                     >
-                        Log in
+                        Create an account
                     </div>
                 </div>
             </div>
