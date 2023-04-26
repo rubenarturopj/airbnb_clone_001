@@ -18,6 +18,7 @@ import { BsSnow } from "react-icons/bs";
 import { IoDiamond } from "react-icons/io5";
 import { MdOutlineVilla } from "react-icons/md";
 import CategoryBox from "../CategoryBox";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
     {
@@ -98,6 +99,15 @@ export const categories = [
 ];
 
 const Categories = () => {
+    const params = useSearchParams(); // to get the params
+    const category = params?.get("category"); // to extract the category from the params
+    const pathname = usePathname(); // to get the pathname
+    const isMainPage = pathname === "/"; // to check if the params are / or a label
+
+    if (!isMainPage) {
+        return null;
+    }
+
     return (
         <Container>
             <div
@@ -115,7 +125,7 @@ const Categories = () => {
                         <CategoryBox
                             key={item.label}
                             label={item.label}
-                            description={item.description}
+                            selected={category === item.label}
                             icon={item.icon}
                         />
                     );

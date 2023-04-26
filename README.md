@@ -511,7 +511,11 @@ npm i query-string
 
 5. Just to be clear, this `CategoryBox.tsx` file has the funciton of displaying each category and its icon AND modifying the URL according to the category chosen. The display of the items will be done in another file based on the URL search params we just created.
 
-ME QUEDÉ EN EL VIDEO 2 H 59 MIN 22 S
+6. We're going to make the categories to read from the URL and show a selected option of itself. Go to `Categories.tsx`. Add params `const params = useSearchParams();` and import it, the same iwth parthname. Extract the categories with a const. Add the conditional. In the return section, replace "description" `selected={item.description}` with "selected" `selected={category === item.label}`.
+
+7. Let's add another option to clean the categories selected (or to unselect them all, or clear categories). That will be when you click on the LOGO of the website, all categories should be cleared. In `app/components/navbar/Logo.tsx` add the onClick function to the `<Image>` component, like this: `onClick={() => router.push("/")}`.
+
+-   Finally, make sure all components have "use client" on top.
 
 ## Start the project:
 
