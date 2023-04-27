@@ -547,9 +547,23 @@ npm i query-string
 
 5. Go back to `RentModal.tsx`. Create an `enum` calles STEPS. Once that done, let's add the controls for STEPS in the main section (this means create a the functions to control them). Once done, add `actionLabel`, `secondaryAction` and `secondaryActionLabel` to the Modal component in the return of the main function.
 
-6. Let's create the `body content` still in `RentModal.tsx`, we'll use LET instead of CONST because we wanna change it dynamically. Map over the importet categories array. Create another component to display this categories called `<CategoryInput/>`. You can create the `CategoryInput.tsx` file in `app/components/input/CategoryInput.tsx`. Don't forget to import it.
+6. Let's create the `body content` still in `RentModal.tsx`, we'll use LET instead of CONST because we wanna change it dynamically. Map over the importet categories array. Create another component to display this categories called `<CategoryInput/>`. You can create the `CategoryInput.tsx` file in `app/components/input/CategoryInput.tsx`. Don't forget to import it. Fill it in with it's coresponding data.
 
-#### more
+7. Connect the options to select category we just created with our form. Go back to `RentModal.tsx` and on top we'll have to initialize _our form_ the same way we did in the `LoginModal` and `RegisterModal`. We are building a form to create the LISTING table in the database (the schema is the in the file schema.prisma). So, make all the setup to do this, you will at some point go to the return section and modify the `onClick` and the `selected` properties of the `<CategoryInput>`.
+
+-   if you click on a category now, it should display selected (but only the UI set up so far, what we can see on the scren, it is not connected yet to the display listings nor anything else).
+
+#### Listing creation: Location selection, Map component, Country autocomplete
+
+:::::::::::::::::::::::::::::::::::::
+ME QUEDÉ EN EL VIDEO: 3H 37 MIN 43 S
+::::::::::::::::::::::::::::::::::::
+
+#### Listing creation: Counter components
+
+#### Listing creation: Image upload, Cloudinary CDN
+
+#### Listing creation: Descrition and Price, Listing creation POST route
 
 ## Start the project:
 

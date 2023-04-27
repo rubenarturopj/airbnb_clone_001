@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
@@ -19,6 +20,40 @@ enum STEPS {
 
 const RentModal = () => {
     const rentModal = useRentModal();
+
+    // start of connecting our categories we just crated with our form ***********
+    // Building the LISTING table in the database (check prisma.schema)
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        watch,
+        formState: { errors },
+        reset,
+    } = useForm<FieldValues>({
+        defaultValues: {
+            category: "",
+            location: null,
+            guestCount: 1,
+            roomCount: 1,
+            bathroomCount: 1,
+            imageSrc: "",
+            price: 1,
+            title: "",
+            description: "",
+        },
+    });
+
+    const category = watch("category");
+
+    const setCustomValue = (id: string, value: any) => {
+        setValue(id, value, {
+            shouldValidate: true,
+            shouldDirty: true,
+            shouldTouch: true,
+        });
+    };
+    // end of connecting out categories with the form ***********
 
     // start of STEP control *************
     const [step, setStep] = useState(STEPS.CATEGORY);
@@ -73,8 +108,10 @@ const RentModal = () => {
                     return (
                         <div key={item.label} className="col-span-1">
                             <CategoryInput
-                                onClick={() => {}}
-                                selected={false}
+                                onClick={(category) =>
+                                    setCustomValue("category", category)
+                                }
+                                selected={category === item.label}
                                 label={item.label}
                                 icon={item.icon}
                             />
