@@ -117,29 +117,29 @@ npm run dev
 
 #### Steps to create your Airbnb clone
 
-1. [Create App](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Step01-CreateApp.md)
+1. [Create App](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step01-CreateApp.md)
 
-2. [Create Navbar UI]()
+2. [Create Navbar UI](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step02-Create-Navbar.md)
 
-3. [Authentication UI]()
+3. [Authentication UI](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step03-Authentication-UI.md)
 
-4. [Functionality of Register, MongoDB, Prisma setup]()
+4. [Functionality of Register, MongoDB, Prisma setup](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step04-Functionality-Register-MongoDB-Prisma.md)
 
-5. [Manual Login - Functionality]()
+5. [Manual Login - Functionality](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step05-Manual-login-functionality.md)
 
-6. [Google and Github Authentication login]()
+6. [Google and Github Authentication login](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step06-Google-Github-Authentication.md)
 
-7. [Polishing login/register modals]()
+7. [Polishing login/register modals](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step07-Polishing-login-register-modal.md)
 
-8. [Categories UI]()
+8. [Categories UI](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step08-Categories-UI.md)
 
-9. [Listing creation: Category selection]()
+9. [Listing creation: Category selection](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step09-Listing-creation-category-selection.md)
 
-10. [Listing creation: Location selection, Map component, Country autocomplete. Step 0 and 1.]()
+10. [Listing creation: Location selection, Map component, Country autocomplete. Step 0 and 1.](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step10-listing-creation-location-map-country.md)
 
-11. [Listing creation: Counter components (how many bathrooms, guests, rooms). Step 2]()
+11. [Listing creation: Counter components (how many bathrooms, guests, rooms). Step 2](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step11-listing-creation-counter-components.md)
 
-12. [Listing creation: Image upload, Cloudinary CDN. STEP 3]()
+12. [Listing creation: Image upload, Cloudinary CDN. STEP 3](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step12-listing-creation-image-upload-cloudinary.md)
 
 #### Listing creation: Descrition and Price, Listing creation POST route. STEP 4
 
