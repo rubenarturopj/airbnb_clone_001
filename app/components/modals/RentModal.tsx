@@ -8,6 +8,8 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
+import CountrySelect from "../inputs/CountrySelect";
+import dynamic from "next/dynamic";
 
 enum STEPS {
     CATEGORY = 0,
@@ -45,6 +47,15 @@ const RentModal = () => {
     });
 
     const category = watch("category");
+    const location = watch("location");
+
+    const Map = useMemo(
+        () =>
+            dynamic(() => import("../Map"), {
+                ssr: false,
+            }),
+        [location]
+    );
 
     const setCustomValue = (id: string, value: any) => {
         setValue(id, value, {
@@ -58,6 +69,8 @@ const RentModal = () => {
     // start of STEP control *************
     const [step, setStep] = useState(STEPS.CATEGORY);
 
+    // cada que apretemos el boton continuar o hacia atras vamos a sumarle o restarle al value
+    // asi vamos a establecer la navegacion: cada paso tiene un valor en numero
     const onBack = () => {
         setStep((value) => {
             return value - 1;
@@ -70,6 +83,8 @@ const RentModal = () => {
         });
     };
 
+    // el primer punto de control. Si step es igual a 5, creame el boton next
+    // "Next" button creation
     const actionLabel = useMemo(() => {
         if (step === STEPS.PRICE) {
             return "Create";
@@ -77,6 +92,7 @@ const RentModal = () => {
         return "Next";
     }, [step]);
 
+    // "back" button creation, si step es igual a 0, crea el boton Back
     const secondaryActionLabel = useMemo(() => {
         if (step === STEPS.CATEGORY) {
             return undefined;
@@ -88,6 +104,7 @@ const RentModal = () => {
 
     // Start of body content *******************
     // we'll use LET instead of CONST because we want this value to be changed dynamically
+    // this is the first return and that's why it's not set in a conditional rendering
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading
@@ -123,11 +140,40 @@ const RentModal = () => {
     );
     // end of Body content ***********************
 
+    // start of Next/Back steps (on the modal) after having selected the category ************
+    // when you click NEXT/BACK buttons, you add or sustract to the value. ********************
+    //
+    // Step 1. If step is equal to 1, then overwrite the previous return and return it instead.
+    if (step === STEPS.LOCATION) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Where is your place located?"
+                    subtitle="Help guests find you!"
+                />
+                <CountrySelect
+                    value={location}
+                    onChange={(value) => setCustomValue("location", value)}
+                />
+                <Map center={location?.latlng} />
+            </div>
+        );
+    }
+    // Step 2. If step is equal to 2
+    // if (step === STEPS.INFO) {
+    //     return (
+    //         <div>
+
+    //         </div>
+    //     )
+    // }
+    // end of Next/Back steps (on the modal) *************************************************
+
     return (
         <Modal
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
-            onSubmit={rentModal.onClose}
+            onSubmit={onNext}
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}

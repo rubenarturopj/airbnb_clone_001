@@ -48,6 +48,11 @@ console.log(CardinalDirections.North);
 // logs 4
 console.log(CardinalDirections.West);
 
+------------------------------------
+-------------------------------------
+------------------------------------
+
+An object of constants
 
 Numeric Enums - Fully Initialized
 enum StatusCodes {
