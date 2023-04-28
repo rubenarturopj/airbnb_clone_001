@@ -115,6 +115,8 @@ npm run dev
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+Step 01 - [Create App](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Step01-CreateApp.md)
+
 #### create Navbar UI
 
 1. In app folder, create a new folder called components, and inside create another folder called navbar. In there, create a new file called Navbar.tsx (app/components/navbar/Navbar.tsx). In this file create the main function to export. Now that this file exist, add it in the body of Layout.tsx and import it on top.
