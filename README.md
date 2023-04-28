@@ -141,33 +141,33 @@ npm run dev
 
 12. [Listing creation: Image upload, Cloudinary CDN. STEP 3](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step12-listing-creation-image-upload-cloudinary.md)
 
-13. Listing creation: Descrition and Price, Listing creation POST route. STEP 4
+13. [Listing creation: Descrition and Price, Listing creation POST route. STEP 4](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step13-Listing-creation-description-price.md)
 
 :::::::::::::::::::::::::::::::::::::
 ME QUEDÉ EN EL VIDEO: 4H 17 MIN 12 S
 :::::::::::::::::::::::::::::::::::::
 
-14. Fetching listings with server components (Listing card component, direct server action)
+14. [Fetching listings with server components (Listing card component, direct server action)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step14-fetch-lists-server.md)
 
-15. Favoriting functionality
+15. [Favoriting functionality](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step15-favorites-listings.md)
 
-16. Individual Listing view
+16. [Individual Listing view](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step16-individual-listing-view.md)
 
-17. Listing reservation component
+17. [Listing reservation component](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step17-listing-reservation-component.md)
 
-18. Reservation functionality (routes, logic)
+18. [Reservation functionality (routes, logic)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step18-reservation-functionality.md)
 
-19. Trips screen (Loading trips with server component)
+19. [Trips screen (Loading trips with server component)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step19-trips-screen.md)
 
-20. Reservations screen (Loading guest reservations with server component)
+20. [Reservations screen (Loading guest reservations with server component)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step20-reservations-screen.md)
 
-21. Favorites screen (Loading your listings with server component)
+21. [Favorites screen (Loading your listings with server component)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step21-favorites-screen.md)
 
-22. Properties screen (loading your listings with server component)
+22. [Properties screen (loading your listings with server component)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step22-properties-screen.md)
 
-23. Filters modal (Assigning various filters, add advanced querying logic to getListings, add loading and error pages)
+23. [Filters modal (Assigning various filters, add advanced querying logic to getListings, add loading and error pages)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step23-filters-modal.md)
 
-24. Vercel deploy and wrap-up
+24. [Vercel deploy and wrap-up](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step24-Vercel-deploy-wrapup.md)
 
 ## Start the project:
 
