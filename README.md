@@ -119,27 +119,27 @@ npm run dev
 
 1. [Create App](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Step01-CreateApp.md)
 
-2. Create Navbar UI
+2. [Create Navbar UI]()
 
-3. Authentication UI
+3. [Authentication UI]()
 
-4. Functionality of Register, MongoDB, Prisma setup
+4. [Functionality of Register, MongoDB, Prisma setup]()
 
-5. Manual Login - Functionality
+5. [Manual Login - Functionality]()
 
-6. Google and Github Authentication login
+6. [Google and Github Authentication login]()
 
-7. Polishing login/register modals
+7. [Polishing login/register modals]()
 
-8. Categories UI
+8. [Categories UI]()
 
-9. Listing creation: Category selection
+9. [Listing creation: Category selection]()
 
-10. Listing creation: Location selection, Map component, Country autocomplete. Step 0 and 1.
+10. [Listing creation: Location selection, Map component, Country autocomplete. Step 0 and 1.]()
 
-11. Listing creation: Counter components (how many bathrooms, guests, rooms). Step 2
+11. [Listing creation: Counter components (how many bathrooms, guests, rooms). Step 2]()
 
-12. Listing creation: Image upload, Cloudinary CDN. STEP 3
+12. [Listing creation: Image upload, Cloudinary CDN. STEP 3]()
 
 #### Listing creation: Descrition and Price, Listing creation POST route. STEP 4
 
