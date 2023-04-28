@@ -8,7 +8,7 @@
 
 pending to clasify
 
--   Cloudinary CDN API
+-   Cloudinary (package and CDN) API (_https://cloudinary.com/_, _npm install next-cloudinary_)
 -   FRONT>BROWSER> Query-String: Parse and stringify URL query strings (_npm install query-string_)
 -   World-countries (_npm install world-countries_)
 -   React Select: displays a dropdown menu (_npm install react-select_)
@@ -114,70 +114,6 @@ npm run dev
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-#### create app
-
-1. Run in the terminal:
-
-```sh
-npx create-next-app --typescript
-```
-
-Then set up the configuration as following: (in case of being prompted more options, I chose "no");
-
-```sh
-give your project a name
-ESLint: yes
-`src/` directory: no
-experimental "app/" directory: yes
-import alias:  press enter
-```
-
--   Reference table:
-    | CRA | VIte | Next.js |
-    |-----|------|---------|
-    |Index.j/ts| Main.j/tsx | Layout.j/tsx|
-    |App.j/ts| App.j/tsx | Page.j/tsx |
-
-2. Go to global.css and detele everything. Go to page and clean it all up, leave only the main function. Go to layout.tsx to change the name of the tab, the description, to import a font and pass it in the retun of the function. Delete page.module.css.
-
-3. Install Tailwind. Stop the application before installing.
-
-```sh
-npm install -D tailwindcss postcss autoprefixer
-```
-
-Then run the following command
-
-```sh
-npx tailwindcss init -p
-```
-
-This creates 2 new files: _postcss.config.js_ and _tailwind.config.js_
-
-4. Go to _tailwind.config.js_. Add the following content to configure template paths:
-
-```sh
-content: [
-  "./app/**/*.{js,ts,jsx,tsx}",
-  "./pages/**/*.{js,ts,jsx,tsx}",
-  "./components/**/*.{js,ts,jsx,tsx}",
-],
-```
-
-Then go to global.css and add:
-
-```sh
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body,
-:root { height: 100% }
-```
-
-5. Run the app again _npm run dev_. You can go to page.tsx and add some classnaames to the div to test if tailwind was succesfully activated.
 
 #### create Navbar UI
 
@@ -556,7 +492,7 @@ npm i query-string
 
 -   if you click on a category now, it should display selected (but only the UI set up so far, what we can see on the scren, it is not connected yet to the display listings nor anything else).
 
-#### Listing creation: Location selection, Map component, Country autocomplete
+#### Listing creation: Location selection, Map component, Country autocomplete. Step 0 and 1.
 
 1. In `RentModal.tsx`, create an if clause just before the return. This will be the next modal after clicking NEXT. Then replace the `onSubmit` value of the function in the return, for `onNext`. We are setting up function called `onNext`, `onBack` to control the flow of the modal, like when you click the button next to move to nthe next step or back to go to the previous one.
 
@@ -635,11 +571,59 @@ npm install react-leaflet
 
 #### Listing creation: Image upload, Cloudinary CDN. STEP 3
 
+1. Go to `RentModat.tsx` and create and IF statement to render another `bodyContent` if `STEP` matches `3`, which is `IMAGES`. Add the `<Heading/>` component and we will use a new component called `<ImageUpload/>` component from `ImageUpload.tsx` that we'll create in `app/component/input` folder. Don't forget to mark this new file as "use client".
+
+2. Create an account in `Cloudinary`. Go to `Google`, search for it. Create your free account. Enter and on the dashboard (left panel) you can see your Cloud name, your API key, API secret and API Environment.
+
+3. Install the `Next Cloudinary` package.
+
+```sh
+npm install next-cloudinary
+```
+
+-   We'll add this line of code as well to our project, replacing the last part with your cloud name, in our `.env` file:
+
+```sh
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<Your Cloud Name>"
+```
+
+4. Let's code the `ImageUpload.tsx` file and style it. Everyting's set and if you try up upload a picture. It should work until the part where you actually press the final submit /upload picture button. There it won't work because it's not ready yet. We need to add this const to our code `const uploadPreset = "<your preset>";`. You can get this preset you have to get it from Cloudinary website. GO to the website, settings on left panel, click on `Upload`. On the right panel, you'll find a section called `Upload presets`, click on `Add upload preset`.
+
+5. For the "Upload preset". The `signing mode` must be `unsigned`. Copy the `upload preset name` on top, and then click on `save`. Once that done, go back to your code and on `ImageUpload.tsx` and create a constant to carry the string you copied. Then find the `uploadPreset` and paste the const value you just created.
+
+6. If you upload a picture, it will throw and error because we haven't passed the `onChange` function. BUT if you go check on cloudinary, the image you uploaded will be there.
+
+7. Go back to `RentModal.tsx` and to the `<ImageUpload/>` component add the value and onchange proterties. DOnt, forget to add the constant that will watch for `imageSrc`.
+
+8. If you try again to upload a picture. It will trigger another error. Copy the hostname the error gives you (`res.cloudinary.com`), then go to `next.config.js` and paste it in the `images.domains` array. After this step SHUT DOWN your application and restart it. It all should work now. Good job.
+
+#### Listing creation: Descrition and Price, Listing creation POST route. STEP 4
+
 :::::::::::::::::::::::::::::::::::::
 ME QUEDÉ EN EL VIDEO: 4H 17 MIN 12 S
 :::::::::::::::::::::::::::::::::::::
 
-#### Listing creation: Descrition and Price, Listing creation POST route
+#### Fetching listings with server components (Listing card component, direct server action)
+
+#### Favoriting functionality
+
+#### Individual Listing view
+
+#### Listing reservation component
+
+#### Reservation functionality (routes, logic)
+
+#### Trips screen (Loading trips with server component)
+
+#### Reservations screen (Loading guest reservations with server component)
+
+#### Favorites screen (Loading your listings with server component)
+
+#### Properties screen (loading your listings with server component)
+
+#### Filters modal (Assigning various filters, add advanced querying logic to getListings, add loading and error pages)
+
+#### Vercel deploy and wrap-up
 
 ## Start the project:
 
