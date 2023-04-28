@@ -141,33 +141,33 @@ npm run dev
 
 12. [Listing creation: Image upload, Cloudinary CDN. STEP 3](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step12-listing-creation-image-upload-cloudinary.md)
 
-#### Listing creation: Descrition and Price, Listing creation POST route. STEP 4
+13. Listing creation: Descrition and Price, Listing creation POST route. STEP 4
 
 :::::::::::::::::::::::::::::::::::::
 ME QUEDÉ EN EL VIDEO: 4H 17 MIN 12 S
 :::::::::::::::::::::::::::::::::::::
 
-#### Fetching listings with server components (Listing card component, direct server action)
+14. Fetching listings with server components (Listing card component, direct server action)
 
-#### Favoriting functionality
+15. Favoriting functionality
 
-#### Individual Listing view
+16. Individual Listing view
 
-#### Listing reservation component
+17. Listing reservation component
 
-#### Reservation functionality (routes, logic)
+18. Reservation functionality (routes, logic)
 
-#### Trips screen (Loading trips with server component)
+19. Trips screen (Loading trips with server component)
 
-#### Reservations screen (Loading guest reservations with server component)
+20. Reservations screen (Loading guest reservations with server component)
 
-#### Favorites screen (Loading your listings with server component)
+21. Favorites screen (Loading your listings with server component)
 
-#### Properties screen (loading your listings with server component)
+22. Properties screen (loading your listings with server component)
 
-#### Filters modal (Assigning various filters, add advanced querying logic to getListings, add loading and error pages)
+23. Filters modal (Assigning various filters, add advanced querying logic to getListings, add loading and error pages)
 
-#### Vercel deploy and wrap-up
+24. Vercel deploy and wrap-up
 
 ## Start the project:
 
