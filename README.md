@@ -13,6 +13,7 @@ pending to clasify
 -   World-countries (_npm install world-countries_)
 -   React Select: displays a dropdown menu (_npm install react-select_)
 -   Leaflet / react-leaflet (_npm install leaflet_, _npm install -D @types/leaflet_, _npm install react-leaflet_)
+-   date-fns: toolset for manipulating JavaScript dates in a browser & Node.js. (_npm install date-fns_)
 
 Framework (front and backend):
 
