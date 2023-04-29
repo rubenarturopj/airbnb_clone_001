@@ -103,15 +103,7 @@ npm run dev
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 ::::::::::::::::::::: Steps ::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -142,10 +134,6 @@ npm run dev
 12. [Listing creation: Image upload, Cloudinary CDN. STEP 3](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step12-listing-creation-image-upload-cloudinary.md)
 
 13. [Listing creation: Descrition and Price, Listing creation POST route. STEP 4](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step13-Listing-creation-description-price.md)
-
-:::::::::::::::::::::::::::::::::::::
-ME QUEDÉ EN EL VIDEO: 4H 17 MIN 12 S
-:::::::::::::::::::::::::::::::::::::
 
 14. [Fetching listings with server components (Listing card component, direct server action)](https://github.com/rubenarturopj/airbnb_clone_001/blob/main/Steps_INSTRUCCIONS_ReadMe_Files/Step14-fetch-lists-server.md)
 

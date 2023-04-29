@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
@@ -13,6 +13,10 @@ import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import { setConstantValue } from "typescript";
+import Input from "../inputs/Input";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 enum STEPS {
     CATEGORY = 0,
@@ -24,6 +28,7 @@ enum STEPS {
 }
 
 const RentModal = () => {
+    const router = useRouter(); // to nacigate through the page
     const rentModal = useRentModal();
 
     // start of connecting our categories we just crated with our form ***********
@@ -75,6 +80,7 @@ const RentModal = () => {
 
     // start of STEP control *************
     const [step, setStep] = useState(STEPS.CATEGORY);
+    const [isLoading, setIsLoading] = useState(false);
 
     // cada que apretemos el boton continuar o hacia atras vamos a sumarle o restarle al value
     // asi vamos a establecer la navegacion: cada paso tiene un valor en numero
@@ -88,6 +94,34 @@ const RentModal = () => {
         setStep((value) => {
             return value + 1;
         });
+    };
+
+    // this will happen every time we click NExt button
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        // we are going to check if we are in the last step
+        if (step !== STEPS.PRICE) {
+            return onNext();
+        }
+
+        // but if we are in the last step where we set up the price
+        setIsLoading(true);
+
+        // caling axios
+        axios
+            .post("/api/listings", data)
+            .then(() => {
+                toast.success("Listing Created!");
+                router.refresh();
+                reset();
+                setStep(STEPS.CATEGORY);
+                rentModal.onClose();
+            })
+            .catch(() => {
+                toast.error("Something went wrong.");
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     };
 
     // el primer punto de control. Si step es igual a 5, creame el boton next
@@ -199,7 +233,7 @@ const RentModal = () => {
             </div>
         );
     }
-    //STEP 3. If STEP is equal to 3 (IMAGE)
+    // STEP 3. If STEP is equal to 3 (IMAGE)
     if (step === STEPS.IMAGES) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -214,13 +248,62 @@ const RentModal = () => {
             </div>
         );
     }
+    // STEP 4. If STEP is equal to 4 (STEP.DESCRIPTION)
+    if (step === STEPS.DESCRIPTION) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <Input
+                    id="title"
+                    label="Title"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="description"
+                    label="Description"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+            </div>
+        );
+    }
+    // STEP 5. If STEP is equal to 5 (STEP.PRICE)
+    if (step === STEPS.PRICE) {
+        bodyContent = (
+            <div>
+                <Heading
+                    title="Now, set your price"
+                    subtitle="How much do you charge per night?"
+                />
+                <Input
+                    id="price"
+                    label="Price"
+                    formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+            </div>
+        );
+    }
     // end of Next/Back steps (on the modal) *************************************************
 
     return (
         <Modal
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
-            onSubmit={onNext}
+            onSubmit={handleSubmit(onSubmit)}
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
