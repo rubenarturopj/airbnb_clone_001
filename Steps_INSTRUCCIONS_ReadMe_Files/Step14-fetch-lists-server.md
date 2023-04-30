@@ -1,7 +1,3 @@
-# UNDER CONSTRUCTION
-
-# ⚠️👷‍♂️🏗️🚧
-
 ## Fetching listings with server components (Listing card component, direct server action)
 
 We are going to load the first listing we created and set in the database, and display it on the website
