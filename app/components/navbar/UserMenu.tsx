@@ -12,12 +12,14 @@ import useRentModal from "@/app/hooks/useRentModal";
 
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
     currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+    const router = useRouter();
     // Start of passing the functions to open the modal from useRegisterModal
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
@@ -71,7 +73,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                         {currentUser ? (
                             <>
                                 <MenuItems
-                                    onClick={() => {}}
+                                    onClick={() => router.push("/trips")}
                                     label="My trips"
                                 />
                                 <MenuItems
