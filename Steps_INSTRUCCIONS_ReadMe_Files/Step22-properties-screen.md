@@ -20,10 +20,6 @@
 
 We need to create a route to delete a property, in `PropertiesClient.tsx` we are using `/api/listings/${id}` but it does not exist.
 
-1. a
+1. Go to `app/api/listings` and in that folder, create another folder called `[listingId]`. Inside it create a file called: `route.ts`. Fill it in.
 
-:::::::::::::::::::::::::::::::::::::
-
-ME QUEDÉ EN EL VIDEO: 7 H 42 MIN 37 S
-
-:::::::::::::::::::::::::::::::::::::
+2. Now the path in axios.delete = `PropertiesClient.tsx` should work fine.
