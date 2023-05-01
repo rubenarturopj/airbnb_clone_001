@@ -14,6 +14,8 @@ pending to clasify
 -   React Select: displays a dropdown menu (_npm install react-select_)
 -   Leaflet / react-leaflet (_npm install leaflet_, _npm install -D @types/leaflet_, _npm install react-leaflet_)
 -   date-fns: toolset for manipulating JavaScript dates in a browser & Node.js. (_npm install date-fns_)
+-   React-date-range: A date library agnostic React component for choosing dates and date ranges. It uses "date-fns" (another package) for date operations. It has date-picker, date-range, calendar and defined-range (_npm install react-date-range_)
+-   React-date-range: TYPES: _npm install -D @types/react-date-range_
 
 Framework (front and backend):
 
