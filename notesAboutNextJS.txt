@@ -28,3 +28,23 @@ leads to better performance and user experience)))
 - Keep large dependencies on the server / Reduce client-side JavaScript.
 
 
+- - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - -
+
+Router
+
+Next.js 13 has included a router that you import like this
+import { useRouter } from "next/navigation";
+and you then invoke like this
+const router = useRouter();
+
+Now you can use it like this:
+onClick={() => router.push("/trips")}
+
+With this way we are creating another page in our website, like: MainPage/trips, 
+MainPage/user, MainPage/Products, MainPage/aboutus.
+
+But for every router we have to create a folder with the same name in the APP folder.
+For example: for onClick={() => router.push("/trips")} we need to creat a folder called "trips"
+path:   app/trips     inside we need to create a file always named    "page.tsx"
