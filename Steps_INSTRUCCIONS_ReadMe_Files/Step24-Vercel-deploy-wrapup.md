@@ -35,6 +35,18 @@ You can ask for PRO plan trial of 14 days or until usage limits. From there you 
 
 -   I will call this project `fullstack-apartment-rental-website-project`. **Y la 🧀**.
 
+-   ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ I had issue when deploying to Vercel due to something related to PRISMA. So, the website solution is telling me to add one line of code to my `package.json` file, in the `script` part. the line of code is:
+
+    ```sh
+    {
+    ...
+    "scripts" {
+        "postinstall": "prisma generate"
+    }
+    ...
+    }
+    ```
+
 ### Congratulations! You have succesfully deployed your project 🥳🥳🥳
 
 -   After deploying, you will have to change your Github OAUTH URLs. You cannot longer use LOCALHOST, but whatevet is Vercel gave you.
