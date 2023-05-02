@@ -14,11 +14,27 @@
 
 6. If you click "search" in the end. You will the the URL has lots of params in it. GREAT.
 
-### Modify getListings action
-
-1. Go to `app/actions/getListings.ts`. We are going to modify the returning listings taking in consideration the parameters in the URL.
-
 ### Set filters for the 3 options on top of the UI (anywhere, any week, add guests)
+
+1. Go to `app/actions/getListings.ts`. We are going to modify the returning listings taking in consideration the parameters in the URL. After a lot of coding here, we should be able to look for reservations available through the search modal. It won't show listings already reserved in the same dates we want it.
+
+2. Create lots of listings (apartments on rent) to display and explore the website
+
+### Create the Loaders
+
+1. Go to `app` folder and create a file called `loading.tsx`. Give it the normal regular structure basic. This file will be used as a loading screen before loading all our website. Inside this file, we will use another component we haven't created yet.
+
+2. Go to `app/components` folder and create a file called: `Loader.tsx`. Mark it as "use client" component on top of the file.
+
+3. Shut down the application, install the following package, at the end run the app again and refresh the browser. This package has lots of cool loading animations to display while we load our app.
+
+```sh
+npm install react-spinners
+```
+
+4. in `loading.tsx` import the `<loader>` component from `Loader.tsx`.
+
+5. In `Loader.tsx` style the return section with an animation.
 
 ### Create Modal to edit these options
 
