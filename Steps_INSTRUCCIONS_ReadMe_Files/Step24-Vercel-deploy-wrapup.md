@@ -47,6 +47,12 @@ You can ask for PRO plan trial of 14 days or until usage limits. From there you 
     }
     ```
 
+### ERROR ON NEXT.JS 13
+
+-   In the forums, people were having my same problem ` Dynamic server usage: searchParams.userId`. Antonio himself recommended [this website where they offer solutions](https://stackoverflow.com/questions/75051613/digest-dynamic-server-usage-nextjs-13)
+
+-   Heres what we have to do: ADD `export const dynamic = 'force-dynamic'` to `page.tsx` and it should work.
+
 ### Congratulations! You have succesfully deployed your project 🥳🥳🥳
 
 -   After deploying, you will have to change your Github OAUTH URLs. You cannot longer use LOCALHOST, but whatevet is Vercel gave you.
