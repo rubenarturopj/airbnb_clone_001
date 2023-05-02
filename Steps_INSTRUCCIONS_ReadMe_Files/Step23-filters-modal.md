@@ -34,12 +34,12 @@ npm install react-spinners
 
 4. in `loading.tsx` import the `<loader>` component from `Loader.tsx`.
 
-5. In `Loader.tsx` style the return section with an animation.
+5. In `Loader.tsx` style the return section with an animation. We chose a circle or sequence of rings in red color.
 
-### Create Modal to edit these options
+### Create the error page
 
-:::::::::::::::::::::::::::::::::::::
+1. in `app` folder, create a new file called `error.tsx`. Mark it as "use client". Give it the basic structure and the main function call it `ErrorState`.
 
-ME QUEDÉ EN EL VIDEO: 7 H 53 MIN 39 S
+2. Import what you have to import. Create the interface. Pass these interface props to the main function. Bring useEffect, and style the return.
 
-:::::::::::::::::::::::::::::::::::::
+-   This will catch any error that happens.
