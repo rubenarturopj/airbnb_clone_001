@@ -14,8 +14,8 @@ import SearchModal from "./components/modals/SearchModal";
 const font = Nunito({ subsets: ["latin"] }); // import and create a const to pass a font to our website
 
 export const metadata = {
-    title: "Airbnb Clone",
-    description: "Airbnb Clone Project",
+    title: "Airbnb Clone Learning Project",
+    description: "Airbnb Clone Learning Project",
 };
 
 export default async function RootLayout({
