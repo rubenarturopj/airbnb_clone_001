@@ -1,8 +1,8 @@
-# UNDER CONSTRUCTION
-
-# ⚠️👷‍♂️🏗️🚧
-
 # Build your Airbnb clone from scratch
+
+## DEMO
+
+[Click here to access the demo](https://fullstack-apartment-rental-project-for-learning.vercel.app/)
 
 ### Technologies used
 

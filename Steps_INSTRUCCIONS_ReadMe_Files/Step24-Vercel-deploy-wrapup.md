@@ -61,9 +61,9 @@ GITHUB -------------
 
 1. Go to github > your profile > settings > left panel: Developper settings > left panel: OAuth Apps > Right panel: Select the OAuth App.
 
-2. Change `Homepage URL` to what vercel gave you. FOR INSTANCE: `https://video-rent-example.vercel.app/`.
+2. Change `Homepage URL` completely to what vercel gave you. FOR INSTANCE: `https://video-rent-example.vercel.app/`. cambialo todo.
 
-3. Change `Authorization callback URL` to the same URL Vercel gave you.
+3. Change `Authorization callback URL` to the same URL Vercel gave you. Change it all. cambialo todo.
 
 4. Click on `Update application` button.
 
@@ -71,6 +71,6 @@ GOOGLE ----------------------
 
 1. Go to google cloud console > top panel: select project > left panel : APIs and services > credentials > right panel: click on the desired item (Web Client or whatever you called it).
 
-2. Change the `Authorized redirect URIs / URI de redireccionamiento autorizados` BUT ONLY THE FIRST PART OF IT!!! leave the rest as it is : `<thisIsWhatYouHaveToChangeIncludingHTTP>/api/auth/callback/google`
+2. Change the `Authorized redirect URIs / URI de redireccionamiento autorizados` BUT ONLY THE FIRST PART OF IT!!! leave the rest as it is : `<thisIsWhatYouHaveToChangeIncludingHTTP>/api/auth/callback/google`.
 
 3. click on `save` button.
