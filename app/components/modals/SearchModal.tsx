@@ -8,9 +8,12 @@ import Modal from "./Modal";
 import useSearchModal from "@/app/hooks/useSearchModal";
 import { Range } from "react-date-range";
 import dynamic from "next/dynamic";
-import { CountrySelectValue } from "../inputs/CountrySelect";
+import CountrySelect, { CountrySelectValue } from "../inputs/CountrySelect";
 import queryString from "query-string";
 import { formatISO } from "date-fns";
+import Heading from "../Heading";
+import Calendar from "../inputs/Calendar";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
     LOCATION = 0,
@@ -54,7 +57,7 @@ const SearchModal = () => {
         setStep((value) => value + 1);
     }, []);
 
-    // when submitting
+    // when submitting or clicking next // to control the modal
     const onSubmit = useCallback(async () => {
         // first let's check if we are NOT on the last step of the modal,
         // if we're not, then move to the next step
@@ -117,13 +120,106 @@ const SearchModal = () => {
         params,
     ]);
 
+    // to control the TEXT of the buttons in the modal
+    const actionLabel = useMemo(() => {
+        // if we are on the last step about to hit submit, the display "Search"
+        if (step === STEPS.INFO) {
+            return "Search";
+        }
+
+        // if we are not on the last step, show a button with the text "Next"
+        return "Next";
+    }, [step]);
+
+    // to control the TEXT and the moment of appereance of the "Back" button
+    const secondaryActionLabel = useMemo(() => {
+        // if we are in the very first part of the modal, dont' show a button saying "back"
+        if (step === STEPS.LOCATION) {
+            return undefined;
+        }
+
+        // if we are not in the first part of the modal, display a button saying "back"
+        return "Back";
+    }, [step]);
+
+    // start of controlling the content of the modal depending on the STEP we are on *******
+    // STEP 0: LOCATION. this is the first part of the modal
+    let bodyContent = (
+        <div className="flex flex-col gap-8">
+            <Heading
+                title="Where do you wanna go?"
+                subtitle="Find the perfect location!"
+            />
+            <CountrySelect
+                value={location}
+                onChange={(value) => setLocation(value as CountrySelectValue)}
+            />
+            <hr />
+            <Map center={location?.latlng} />
+        </div>
+    );
+
+    // STEP 1: DATE -- middle section of the modal
+    if (step === STEPS.DATE) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="When do you plan to go?"
+                    subtitle="Make sure everyone is free!"
+                />
+                <Calendar
+                    onChange={(value) => setDateRange(value.selection)}
+                    value={dateRange}
+                />
+            </div>
+        );
+    }
+
+    // STEP 2: INFO -- final section of the modal, ready to submit
+    if (step === STEPS.INFO) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="More information"
+                    subtitle="Find your perfect place!"
+                />
+                <Counter
+                    onChange={(value) => setGuestCount(value)}
+                    value={guestCount}
+                    title="Guests"
+                    subtitle="How many guests are coming?"
+                />
+                <hr />
+                <Counter
+                    onChange={(value) => setRoomCount(value)}
+                    value={roomCount}
+                    title="Rooms"
+                    subtitle="How many rooms do you need?"
+                />
+                <hr />
+                <Counter
+                    onChange={(value) => {
+                        setBathroomCount(value);
+                    }}
+                    value={bathroomCount}
+                    title="Bathrooms"
+                    subtitle="How many bahtrooms do you need?"
+                />
+            </div>
+        );
+    }
+    // end of controlling the content of the modal depending on the STEP we are on **********
+
     return (
         <Modal
             isOpen={searchModal.isOpen}
-            onClose={searchModal.onClose}
-            onSubmit={searchModal.onOpen}
             title="Filters"
-            actionLabel="Search"
+            actionLabel={actionLabel}
+            onSubmit={onSubmit}
+            secondaryActionLabel={secondaryActionLabel}
+            secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
+            onClose={searchModal.onClose}
+            body={bodyContent}
         />
     );
 };

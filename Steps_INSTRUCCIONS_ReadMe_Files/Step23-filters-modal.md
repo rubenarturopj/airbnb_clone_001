@@ -10,6 +10,14 @@
 
 4. Go to the main `layout.tsx` file. And add the component `<SearchModal>` we just created between `ToasterProvider` and `RentModal`.
 
+5. Go back to edit `SearchModal.tsx`. Here we're gonna add a lot of things to make our modal work, like bring back map, the date range package, the function to move forwards and backwards in our steps, to submit the modal, to the functions to create url parameters to do the search, check the number of rooms guests and bathrooms, etc. Style the return depending on steps, this is very complex, check the file for more info.
+
+6. If you click "search" in the end. You will the the URL has lots of params in it. GREAT.
+
+### Modify getListings action
+
+1. Go to `app/actions/getListings.ts`. We are going to modify the returning listings taking in consideration the parameters in the URL.
+
 ### Set filters for the 3 options on top of the UI (anywhere, any week, add guests)
 
 ### Create Modal to edit these options
