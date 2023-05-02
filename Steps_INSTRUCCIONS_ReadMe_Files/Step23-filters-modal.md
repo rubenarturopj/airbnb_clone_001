@@ -47,3 +47,11 @@ npm install react-spinners
 2. Import what you have to import. Create the interface. Pass these interface props to the main function. Bring useEffect, and style the return.
 
 -   This will catch any error that happens.
+
+### Prevent people who are not logged in to have access to "favorite" section when they manually enter the URL.
+
+1. Go to the project folder, outside `app` folder, and create a file called `middleware.ts`.
+
+2. In there we are going to add the routes we want to protect. Add them as in the file.
+
+3. Shut down the application and restart it so it has effect.
