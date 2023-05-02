@@ -20,7 +20,11 @@
 
 2. Create lots of listings (apartments on rent) to display and explore the website
 
-### Create the Loaders
+### display our filters, what we selected in the SearchModal, in the UI (middle, top) instead of "Anywhere, any week, adda guests".
+
+1. Go to `app/components/navbar/Search.tsx`. And add a bunch of constants to keep track of the parameters in the URL and 3 functions that will take care of checking this parameters and preparing the string to display on the website UI. Also, substitue the hardcoded values in the return section, for this dynamic values we just created.
+
+### Create the Loaders (animation or picture that appears as a placeholder while we are loading our website)
 
 1. Go to `app` folder and create a file called `loading.tsx`. Give it the normal regular structure basic. This file will be used as a loading screen before loading all our website. Inside this file, we will use another component we haven't created yet.
 
