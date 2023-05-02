@@ -6,18 +6,6 @@
 
 ### Technologies used
 
-pending to clasify
-
--   Cloudinary (package and CDN) API (_https://cloudinary.com/_, _npm install next-cloudinary_)
--   FRONT>BROWSER> Query-String: Parse and stringify URL query strings (_npm install query-string_)
--   World-countries (_npm install world-countries_)
--   React Select: displays a dropdown menu (_npm install react-select_)
--   Leaflet / react-leaflet (_npm install leaflet_, _npm install -D @types/leaflet_, _npm install react-leaflet_)
--   date-fns: toolset for manipulating JavaScript dates in a browser & Node.js. (_npm install date-fns_)
--   React-date-range: A date library agnostic React component for choosing dates and date ranges. It uses "date-fns" (another package) for date operations. It has date-picker, date-range, calendar and defined-range (_npm install react-date-range_)
--   React-date-range: TYPES: _npm install -D @types/react-date-range_
--   React-spinners: visual loader animations (_npm install react-spinners_)
-
 Framework (front and backend):
 
 -   Next.js 13 (App directory)
@@ -32,10 +20,22 @@ Front-end:
 -   React icons: icons (_npm install react-icons_)
 -   Zustand: state management solution (_npm install zustand_)
 -   React Hot Toast: notifications (_npm install react-hot-toast_)
+-   React-spinners: visual loader animations (_npm install react-spinners_)
+-   React-date-range: A date library agnostic React component for choosing dates and date ranges. It uses "date-fns" (another package) for date operations. It has date-picker, date-range, calendar and defined-range (_npm install react-date-range_)
+-   React-date-range: TYPES: _npm install -D @types/react-date-range_
+-   Leaflet / react-leaflet (_npm install leaflet_, _npm install -D @types/leaflet_, _npm install react-leaflet_)
+-   React Select: displays a dropdown menu (_npm install react-select_)
+-   World-countries (_npm install world-countries_)
+-   Query-String: Parse and stringify URL query strings (_npm install query-string_)
+-   Cloudinary (package and CDN) API (_https://cloudinary.com/_, _npm install next-cloudinary_)
 
 Back-end:
 
 -   Axios (To make XMLHttpRequests from the browser, to make http requests from node.js, automatically transforms for JSON data) (_npm install axios_)
+
+Time and dates manipulation for front and back end:
+
+-   date-fns: toolset for manipulating JavaScript dates in a browser & Node.js. (_npm install date-fns_)
 
 Database:
 
@@ -171,12 +171,6 @@ npm run dev
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-### Credits:
+## Credits:
 
 [Code With Antonio](https://www.youtube.com/watch?v=c_-b_isI4vg)
